@@ -15,18 +15,31 @@ use Illuminate\Support\Facades\Route;
 // frontend
 Route::get('/','PageController@mainfun')->name('mainpage');
 Route::get('brand','PageController@brandfun')->name('brandpage');
-Route::get('itemdetail','PageController@itemdetailfun')->name('itemdetailpage');
+Route::get('itemdetail','PageController@detailfun')->name('itemdetailpage');
 Route::get('loginpage','PageController@loginfun')->name('loginpage');
 
 Route::get('registerpage','PageController@registerfun')->name('registerpage');
 
-Route::get('promotion','PageController@promotionfun')->name('promotionpage');
+Route::get('promotions','PageController@promotionfun')->name('promotionpage');
+
+Route::get('itemsbybrand/{id}','PageController@itemsbybrand')->name('itemsbybrandpage');
+
+Route::get('itemsbycategory/{id}','PageController@itemsbycategory')->name('itemsbycategorypage');
+
+Route::get('fliteritems/{id}','PageController@fliteritems')->name('fliteritemspage');
+
+
 
 Route::get('shoppingcart','PageController@shoppingcartfun')->name('shoppingcartpage');
 
 Route::get('subcategory','PageController@subcategoryfun')->name('subcategorypage');
 
+Route::get('detail/{id}','PageController@detailfun')->name('itemdetailpage');
+
 Route::resource('orders','OrderController');
+Route::get('order_history','OrderController@order_history')->name('order_history');
+
+
 
 // backkend
 Route::middleware('role:Admin')->group(function(){

@@ -7,7 +7,7 @@
 		 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
            <div class="row">
            	<div class="col-md-12">
-           		 <h1 class="h3 mb-0 text-gray-800">Show All Item  Here!</h1>
+           		 <h1 class="h3 mb-0 text-gray-800">Show All Subcategories  Here!</h1>
            	</div>
            </div>
            <a class="btn btn-primary" href="{{ route('subcategories.create')}}">Add New</a>

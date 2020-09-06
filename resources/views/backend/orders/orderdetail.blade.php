@@ -29,14 +29,15 @@
                   @php $i=1;$total=0; @endphp
                   @foreach($order->items as $item)
                   @php
-                  $subtotal = $item->price * $item->pivot->qty;
+                  $subtotal = ($item->price-$item->discount) * $item->pivot->qty;
                   $total += $subtotal;
+                  $price = $item->price - $item->discount;
                   @endphp
                   <tr>
                     
                     <td>{{ $i++ }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->price }} MMK </td>
+                    <td>{{ $price }} MMK </td>
                     <td>{{ $item->pivot->qty }}</td>
                     <td>{{ $subtotal }} MMK</td>
                     

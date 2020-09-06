@@ -13,9 +13,16 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $brandsname=$request->brandsname;
+
+        if($request->brandsname){
+            $brands = Brand::where('name',$brandsname)->get();        
+        }else{
+
         $brands= Brand::all();
+        }
         return view('backend.brands.index',compact('brands'));
     }
 
@@ -137,6 +144,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()->route('brands.index');
     }
 }

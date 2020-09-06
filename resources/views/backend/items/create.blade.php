@@ -63,9 +63,7 @@
            			<div class="form-group row">
            				<label for="description"  class="col-sm-2  col-form-label">Description</label>
            				<div class="col-sm-5">
-           					<textarea class="form-control" id="de" name="description">
-           						
-           					</textarea>
+           					<textarea class="form-control" id="de" name="description"></textarea>
                     @if ($errors->has('description'))
                     <span class="text-danger">{{ $errors->first('description')}}</span>
                     @endif

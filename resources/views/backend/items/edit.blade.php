@@ -54,10 +54,7 @@
            			<div class="form-group row">
            				<label for="description col-form-label" class="col-sm-2">Description</label>
            				<div class="col-sm-5">
-           					<textarea class="form-control" id="de" name="description" >
-								{{$item->description}}
-           						
-           					</textarea>
+           					<textarea class="form-control" id="de" name="description" >{{$item->description}}</textarea>
            				</div>
            			</div>
 
@@ -66,7 +63,7 @@
            				<select class="form-control-md" id="inputBrand" name="brand">
            					<optgroup label="Choose Brand">
            						@foreach($brands as $brand)
-           						<option value="{{$brand->id}}">{{$brand->name}}</option>
+           						<option value="{{$brand->id}}" @if($brand->id == $item->brand_id) {{'selected'}} @endif >{{$brand->name}}</option>
            						@endforeach
            						
            					</optgroup>
@@ -79,7 +76,7 @@
            				<select class="form-control-md" id="inputBrand" name="subcategory">
            					<optgroup label="Choose Subcategory">
            						@foreach($subcategories as $subcategory)
-           						<option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+           						<option value="{{$subcategory->id}}" @if($subcategory->id == $item->subcategory_id) {{'selected'}} @endif >{{$subcategory->name}}</option>
            						@endforeach
            						
            					</optgroup>

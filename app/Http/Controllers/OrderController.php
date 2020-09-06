@@ -12,17 +12,25 @@ class OrderController extends Controller
 
     {
         $this->middleware('role:Admin')->only('index','show');
-        $this->middleware('role:Customer')->only('store');
+        $this->middleware('role:Customer')->only('store','order_history');
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
 
     { 
-         $orders = Order::all();
+        $date1 = $request->sdate;
+        $date2 = $request->edate;
+
+        if ($request->sdate && $request->edate) {
+            $orders = Order::whereBetween('orderdate', [($date1),($date2)])->where('status',0)->get();
+        }else{
+            $orders = Order::all();
+        }
+
         return view('backend.orders.orderlist',compact('orders'));
     }
 
@@ -51,7 +59,7 @@ class OrderController extends Controller
         $total = 0;
 
         foreach ($catArr as $key => $row) {
-            $total+=($row->price * $row->qty);
+            $total+=(($row->price-$row->discount) * $row->qty);
         }
 
         $order =new Order;
@@ -113,5 +121,12 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+     public function order_history()
+    {
+        $user_id = Auth::id();
+        $orders = Order::where('user_id',$user_id)->orderBy('id','DESC')->get();
+        return view('orders_history',compact('orders'));
     }
 }

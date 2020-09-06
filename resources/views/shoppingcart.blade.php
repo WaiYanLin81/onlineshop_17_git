@@ -24,7 +24,7 @@
 
 		<div class="row mt-5 shoppingcart_div">
 			<div class="table-responsive">
-				<table class="table table-bordered">
+				<table class="table table-bordered myshoppingcart">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -35,8 +35,8 @@
 
 							<th> Qty </th>
 							
-							<th> Total </th>
-							<th> Discount </th>
+							<th> Subtotal </th>
+						
 							<th> Action </th>
 							
 						</tr>

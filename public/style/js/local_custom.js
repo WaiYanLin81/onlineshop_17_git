@@ -2,6 +2,7 @@ $(document).ready(function(){
 	shownoticount();
 	showdata();
 	 emptycart();
+	 totalplus();
 
 	 $.ajaxSetup({
     headers: {
@@ -67,6 +68,7 @@ $(document).ready(function(){
 		shownoticount();
 		showdata();
 		emptycart();
+		totalplus();
 		
 
 	});
@@ -77,13 +79,22 @@ $(document).ready(function(){
 		if(mycart){
 			var mycart_item=JSON.parse(mycart);;
 			var showtable="";
-			var j=1;
+			var j=1;var total=0;
 			$.each(mycart_item,function(i,v){
 				var name =v.name;
-				var price=v.price;
+				var price=v.price-v.discount;
 				var photo=v.photo;
 				var qty  =v.qty;
+				var subtotal =price*qty;
+
 				var discount =v.discount;
+
+
+
+
+
+
+				total+=subtotal;
 				showtable +=`
 						<tr>
 						<td>${j++}</td>
@@ -94,7 +105,7 @@ $(document).ready(function(){
 						<span class="qty">${qty}</span>
 						<button class="btn btn-success minus_btn btn-sm" data-id="${i}">-</button></td>
 						<td>${qty*price}</td>
-						<td><strike>${discount}</strike></td>
+						
 						<td>
 						<button class="btn btn-danger delete_btn" data-id="${i}">Delete</button
 						</td>
@@ -106,10 +117,17 @@ $(document).ready(function(){
 
 				`;
 			})
+			showtable+=`<tr>
+						<td colspan="6">Total</td>
+						<td>${total}</td>
+
+					</tr>`
 			$("#shoppingcart_table").html(showtable);
 
 		}else{
 			$("#shoppingcart_table").html('');
+			
+
 
 		}
 	}
@@ -136,6 +154,7 @@ $(document).ready(function(){
 			showdata();
 			shownoticount();
 			emptycart();
+			totalplus();
 		}
 
 	});
@@ -170,6 +189,7 @@ $(document).ready(function(){
 			showdata();
 			shownoticount();
 			emptycart();
+			totalplus();
 		}
 	})
 
@@ -197,6 +217,7 @@ $(document).ready(function(){
 			showdata();
 			shownoticount();
 			emptycart();
+			totalplus();
 		}
 	})
 
@@ -215,6 +236,22 @@ $(document).ready(function(){
 				
 			});
 			$('.cartNoti').html(noti);
+			
+		}
+	}
+
+
+	function totalplus(){
+		var mycart = localStorage.getItem('item');
+		if(mycart){
+			var totalplus =0;
+			var mycart_obj = JSON.parse(mycart);
+			$.each(mycart_obj,function(i,v){
+				totalplus+= v.qty*(v.price-v.discount);
+			
+				
+			});
+			$('.total_plus').html(totalplus);
 			
 		}
 	}

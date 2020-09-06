@@ -10,7 +10,7 @@ class Item extends Model
     	'codeno', 'name', 'photo', 'price', 'discount',
     	'description', 'subcategory_id', 'brand_id',
     ];
-    public function Brand($value='')
+    public function brand($value='')
    {
    	return $this->belongsTo('App\Brand');
    }

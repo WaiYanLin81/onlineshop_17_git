@@ -11,6 +11,6 @@ class Brand extends Model
     ];
     public function items($value='')
    {
-   	return $this->hasMany('App/Item');
+   	return $this->hasMany('App\Item');
    }
 }

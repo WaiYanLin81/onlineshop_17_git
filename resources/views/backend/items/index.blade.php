@@ -3,7 +3,7 @@
 @section('content')
 
 
-		<div class="container-fluid">
+		<div class="container">
 		 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
            <div class="row">
            	<div class="col-md-12">
@@ -12,7 +12,9 @@
            </div>
            <a class="btn btn-primary" href="{{ route('items.create')}}">Add New</a>
        </div>
-       		 <table class="table table-dark table-bordered">
+        <div class="row"> 
+          <div class="col-md-12">
+       		 <table class="table">
            		 	<thead>
  						
 
@@ -33,14 +35,20 @@
            		 			<td>{{$item->name}}</td>
            		 			<td>{{$item->price}}</td>
            		 			<td>
-           		 			<a href="" class="btn btn-success">Detail</a>
+                    <a href="{{ route('items.show',$item->id) }}" class="btn btn-success">Detail</a>
            		 			<a href="{{ route('items.edit',$item->id)}}" class="btn btn-warning">Edit</a>
-           		 			<a href="" class="btn btn-danger">Delete</a></td>
-           		 			
+           		 			<form action="{{ route('items.destroy',$item->id)}}" method="POST" onsubmit="return confirm('Are you sure?')" class="d-inline-block" >
+                      @csrf
+                      @method('DELETE')
+                   <input type="submit" class="btn btn-danger" value="Delete">
+                  </form>
+                  </td>
            		 		</tr>
            		 		@endforeach
            		 	</tbody>
            		 </table>
+          </div>
+        </div>
 
 
    </div>
