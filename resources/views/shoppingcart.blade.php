@@ -50,6 +50,9 @@
 					</tfoot>
 				</table>
 			</div>
+
+				<textarea class="notes">Writie Something Plz!</textarea>
+			
 		</div>
 
 		<!-- No Shopping Cart Div -->
@@ -58,9 +61,7 @@
 			<div class="col-12">
 				<h5 class="text-center " id="p_text">  </h5>
 			</div>
-			<div class="col-12">
-				<textarea class="notes"></textarea>
-			</div>
+			
 
 			@role('Customer')
 			<div class="col-12 mt-5 ">
