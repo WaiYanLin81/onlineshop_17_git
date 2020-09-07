@@ -14,17 +14,17 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb bg-transparent">
-          <li class="breadcrumb-item">
-            <a href="#" class="text-decoration-none secondarycolor"> Home </a>
+           <li class="breadcrumb-item">
+            <a href="{{route('mainpage')}}" class="text-decoration-none secondarycolor"> Home </a>
           </li>
           <li class="breadcrumb-item">
-            <a href="#" class="text-decoration-none secondarycolor"> Category </a>
+            <a href="{{route('itemsbycategorypage',$item->subcategory->category->id)}}" class="text-decoration-none secondarycolor"> {{$item->subcategory->category->name}} </a>
           </li>
           <li class="breadcrumb-item">
-            <a href="#" class="text-decoration-none secondarycolor"> Category Name </a>
+            <a href="{{route('fliteritemspage',$item->subcategory->id)}}" class="text-decoration-none secondarycolor"> {{$item->subcategory->name}} </a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-          Subcategory Name
+            {{$item->name}}
           </li>
         </ol>
     </nav>
@@ -99,4 +99,5 @@
      
     
   </div>
+</div>
 @endsection

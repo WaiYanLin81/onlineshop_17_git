@@ -49,7 +49,7 @@
 
 		<div class="row shadow-sm p-3 bg-white rounded d-flex align-items-center">
 			<!-- LOGO -->
-			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 order-1">
+			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 order-1"><a href="{{ route('mainpage')}}">
 				<span class="d-xl-none d-lg-none d-md-inline d-sm-inline d-inline  p-1 navslidemenu">
 					<i class="icofont-navigation-menu"></i>
 				</span>
@@ -58,6 +58,7 @@
 				<img src="{{ asset('style/logo/logo_med.jpg')}}" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px">
 
 				<img src="{{ asset('style/logo/logo.jpg')}}" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px">
+			</a>
 			</div>
 			
 			<!-- Search Bar -->
@@ -66,12 +67,16 @@
 					<div class="col-lg-8 col-2 ">
 						<div class="has-search d-xl-block d-lg-block d-none ">
 						    <div class="input-group">
-				                <input class="form-control pl-4 border-right-0 border" type="search" placeholder="Search" id="">
-				                <span class="input-group-append searchBtn">
+						    	<form  class="form-inline" action="{{ route('mainpage')}}" method="get">
+				                <input class="form-control pl-4 border-right-0 border" type="search" placeholder="Search" name="srcitems" id="">
+				               {{--  <span  class="  input-group-append searchBtn">
 				                    <div class="input-group-text bg-transparent">
 				                    	<i class="icofont-search"></i>
 				                    </div>
-				                </span>
+				                </span> --}}
+				                 <button class="btn  my-2 my-sm-0 btn-danger" type="submit">Search</button>
+				            </form>
+				           
 				            </div>
 						</div>
 					</div>
@@ -122,12 +127,12 @@
 				<a href="{{ route('shoppingcartpage')}}" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i> 
 					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 0 </span>
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti total_plus "> 0 </span> 
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle  total_plus ">  </span> 
 				</a>
 
 				<a href="" class="text-decoration-none d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i>
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 1 </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 0 </span>
 				</a>
 
 				<!-- App Download -->

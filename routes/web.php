@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 // frontend
 Route::get('/','PageController@mainfun')->name('mainpage');
 Route::get('brand','PageController@brandfun')->name('brandpage');
-Route::get('itemdetail','PageController@detailfun')->name('itemdetailpage');
+
 Route::get('loginpage','PageController@loginfun')->name('loginpage');
 
 Route::get('registerpage','PageController@registerfun')->name('registerpage');

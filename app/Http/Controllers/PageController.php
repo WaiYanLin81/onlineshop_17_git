@@ -9,9 +9,14 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function mainfun()
+    public function mainfun(Request $request)
     {
+      $srcitems = $request->srcitems;
+      if($request->srcitems){
+        $discountItems = Item::where('name','LIKE','%'.$srcitems.'%')->get();
+      }else{
       $discountItems = Item::all();
+    }
     $brands = Brand::take(6)->get();
     $categories = Category::take(8)->get();
     	return view('main',compact('discountItems','brands','categories'));
@@ -50,6 +55,7 @@ class PageController extends Controller
     {
       $item = Item::find($id);
       $items = Item::where('subcategory_id',31)->get();
+
       return view('detail',compact('item','items'));
     }
 

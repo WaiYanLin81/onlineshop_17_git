@@ -24,8 +24,8 @@
 
 		<div class="row mt-5 shoppingcart_div">
 			<div class="table-responsive">
-				<table class="table table-bordered myshoppingcart">
-					<thead>
+				<table class="table table-bordered">
+					<thead id="myshoppingcart">
 						<tr>
 							<th>No</th>
 							<th>Name</th>

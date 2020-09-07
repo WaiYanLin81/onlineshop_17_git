@@ -125,7 +125,9 @@ $(document).ready(function(){
 			$("#shoppingcart_table").html(showtable);
 
 		}else{
-			$("#shoppingcart_table").html('');
+			
+			
+			
 			
 
 
@@ -264,6 +266,9 @@ $(document).ready(function(){
 			$('#p_text').html(empty);
 			$('.buynow_btn').hide();
 			$('.notes').hide();
+			$("#myshoppingcart").hide();
+			$('.total_plus').hide();
+
 
 
 
@@ -286,6 +291,9 @@ $(document).ready(function(){
 			$('#p_text').html(empty);
 			$('.buynow_btn').hide();
 			$('.notes').hide();
+			$("#shoppingcart_table").hide();
+			$("#myshoppingcart").hide();
+			$('.total_plus').hide();
 
 				
 				
